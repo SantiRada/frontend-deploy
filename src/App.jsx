@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { BASE_URL } from './utils/contants';
 
 function App() {
   const [message, setMessage] = useState('Cargando...');
 
   useEffect(() => {
-    fetch('http://localhost:3000/api')
+    fetch(`${BASE_URL}/api`)
       .then((res) => res.json())
       .then((data) => setMessage(data.message))
       .catch((error) => {
